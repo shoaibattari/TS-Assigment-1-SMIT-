@@ -20,13 +20,20 @@ async function getData() {
 export default async function Home() {
   const quote = await getData();
   return (
-    <div>
-      <div className="md:px-[60px] px-[20px] ">
+    <div className=" md:w-[1200px] ">
+      <div className="p-10 text-center ">
+        <div className=" grid grid-cols-3 m-3 border-2">
+          <p className="text-1xl text-gray-700 uppercase border-2 font-bold"> Id</p>
+          <p className="text-1xl text-gray-700 uppercase border-2 font-bold">Name</p>
+          <p className="text-1xl text-gray-700 uppercase border-2 font-bold"> Type</p>
+        </div>
+
         {quote.map((ele: { id: number; name: string; type: string }) => (
-          <div key={ele.id} className="mt-10  ">
-            <div className="mt-3">
-              <p className="text-2xl text-orange-800 uppercase"> {ele.name}</p>
-              <p className="text-1xl text-gray-700 uppercase"> {ele.type}</p>
+          <div key={ele.id}>
+            <div className=" grid grid-cols-3 m-3 ">
+              <p className="text-1xl text-gray-800 uppercase border-2"> {ele.id}</p>
+              <p className="text-2xl text-orange-800 uppercase border-2"> {ele.name}</p>
+              <p className="text-1xl text-gray-800 uppercase border-2"> {ele.type}</p>
             </div>
           </div>
         ))}
